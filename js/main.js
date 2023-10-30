@@ -11,7 +11,7 @@ $(document).ready(function() {
         placeholder:'(+CCC) 000 000 000'
     });
 
-    $('form').validade({
+    $('form').validate({
         rules: {
             name: {
                 required: true
@@ -23,7 +23,7 @@ $(document).ready(function() {
             telephone: {
                 required: true
             },
-            mensage: {
+            message: {
                 required: true
             },
             interestedVehicle: {
@@ -35,7 +35,10 @@ $(document).ready(function() {
         },
         invalidHandler: function(event, validator) {
             let incorrectFields = validator.numberOfInvalids();
-            console.log(incorrectFields)
+
+            if (incorrectFields) {
+                alert(`There are ${incorrectFields} incorrect fields!`)
+            }
         }
     })
 
